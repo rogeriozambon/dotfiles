@@ -1,0 +1,28 @@
+[user]
+  name = Rogério Zambon
+  email = rogeriozambon@gmail.com
+
+[push]
+  default = current
+
+[alias]
+  cm = commit
+  st = status
+  co = checkout
+  l = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
+  lg = log --pretty=oneline --abbrev-commit --graph --decorate
+
+[apply]
+  whitespace = warn
+
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  ui = true
+
+[help]
+  autocorrect = 1
+
+[status]
+  submodule = 1
