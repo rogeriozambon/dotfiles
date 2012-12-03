@@ -3,6 +3,8 @@ source ~/.prompt.sh
 source ~/.alias.sh
 source ~/.export.sh
 
+export QMAKESPEC=/usr/local/Qt4.8/mkspecs/macx-g++
+
 # Ruby debug
 debug() {
   ruby -r pry "$@";

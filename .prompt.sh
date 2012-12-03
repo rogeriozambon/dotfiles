@@ -13,6 +13,7 @@ __prompt () {
   local RED="\[\033[0;31m\]"
   local WHITE="\[\033[1;37m\]"
   local YELLOW="\[\033[0;33m\]"
+  local MAGENTA="\[\033[0;35m\]"
 
   local BASE_COLOR="$NO_COLOR"
   local BRANCH=`git branch 2> /dev/null | grep \* | sed 's/* //'`
@@ -82,10 +83,11 @@ __prompt () {
       STATE="${STATE}${YELLOW}*${NO_COLOR}"
     fi
 
-    PS1="\n${RUBY_PROMPT}${WHITE}\w\a${NO_COLOR} ${PROMPT_COLOR}${BRANCH}${NO_COLOR}${STATE}${NO_COLOR}\n\$ "
+    PS1="\n${RUBY_PROMPT}${MAGENTA}\w\a${NO_COLOR} ${PROMPT_COLOR}${BRANCH}${NO_COLOR}${STATE}${NO_COLOR}\n\$ "
   else
-    PS1="\n${RUBY_PROMPT}${WHITE}\w\a${NO_COLOR}\n\$ "
+    PS1="\n${RUBY_PROMPT}${MAGENTA}\w\a${NO_COLOR}\n\$ "
   fi
 }
 
 PROMPT_COMMAND=__prompt
+
