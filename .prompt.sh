@@ -83,9 +83,9 @@ __prompt () {
       STATE="${STATE}${YELLOW}*${NO_COLOR}"
     fi
 
-    PS1="\n${RUBY_PROMPT}${MAGENTA}\w\a${NO_COLOR} ${PROMPT_COLOR}${BRANCH}${NO_COLOR}${STATE}${NO_COLOR}\n\$ "
+    PS1="\n${RUBY_PROMPT}${LIGHT_GRAY}\w\a${NO_COLOR} ${PROMPT_COLOR}${BRANCH}${NO_COLOR}${STATE}${NO_COLOR}\n\$ "
   else
-    PS1="\n${RUBY_PROMPT}${MAGENTA}\w\a${NO_COLOR}\n\$ "
+    PS1="\n${RUBY_PROMPT}${LIGHT_GRAY}\w\a${NO_COLOR}\n\$ "
   fi
 }
 
