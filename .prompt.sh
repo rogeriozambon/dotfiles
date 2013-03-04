@@ -90,4 +90,3 @@ __prompt () {
 }
 
 PROMPT_COMMAND=__prompt
-

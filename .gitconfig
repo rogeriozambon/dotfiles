@@ -6,11 +6,9 @@
   default = current
 
 [alias]
-  cm = commit
-  st = status
-  co = checkout
   l = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
-  lg = log --pretty=oneline --abbrev-commit --graph --decorate
+  lg = log --pretty=oneline --abbrev-commit --graph --decorate --date=relative
+  rank = shortlog -sn
 
 [apply]
   whitespace = warn
@@ -19,6 +17,8 @@
   diff = auto
   status = auto
   branch = auto
+  interactive = auto
+  grep = auto
   ui = true
 
 [help]
@@ -26,3 +26,6 @@
 
 [status]
   submodule = 1
+
+[core]
+  editor = subl -n -w
