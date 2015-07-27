@@ -5,14 +5,14 @@ __prompt () {
 
   local BLUE="\[\033[0;34m\]"
   local NO_COLOR="\[\e[0m\]"
-  local GRAY="\[\033[1;30m\]"
+  local GRAY="\[\033[0;30m\]"
   local GREEN="\[\033[0;32m\]"
   local LIGHT_GRAY="\[\033[0;37m\]"
   local LIGHT_GREEN="\[\033[1;32m\]"
   local LIGHT_RED="\[\033[1;31m\]"
   local RED="\[\033[0;31m\]"
   local WHITE="\[\033[1;37m\]"
-  local YELLOW="\[\033[0;33m\]"
+  local YELLOW="\[\033[1;33m\]"
   local MAGENTA="\[\033[0;35m\]"
 
   local BASE_COLOR="$NO_COLOR"
@@ -47,10 +47,10 @@ __prompt () {
   local LOG=`git log -1 2> /dev/null`
 
   if [[ "$RAILS_VERSION" ]]; then
-    local RAILS_PROMPT="${RED}#${LIGHT_GREEN}${RAILS_VERSION}"
+    local RAILS_PROMPT="${RED}#${LIGHT_RED}Rails ${RAILS_VERSION}"
   fi
 
-  RUBY_PROMPT="${LIGHT_GREEN}${RUBY_VERSION}${RAILS_PROMPT}${BASE_COLOR}${NO_COLOR} "
+  RUBY_PROMPT="${LIGHT_RED}Ruby ${RUBY_VERSION}${RAILS_PROMPT}${BASE_COLOR}${NO_COLOR}"
 
   if [ "$STATUS" != "" ]; then
     if [[ "$STATUS" =~ "$CHANGES_NOT_STAGED" ]]; then
@@ -83,9 +83,9 @@ __prompt () {
       STATE="${STATE}${YELLOW}*${NO_COLOR}"
     fi
 
-    PS1="\n${RUBY_PROMPT}${LIGHT_GRAY}\w\a${NO_COLOR} ${PROMPT_COLOR}${BRANCH}${NO_COLOR}${STATE}${NO_COLOR}\n\$ "
+    PS1="\n${LIGHT_GREEN}${USER} ${GRAY}at ${LIGHT_GREEN}${HOSTNAME} ${GRAY}in ${WHITE}\w ${GRAY}on ${YELLOW}${BRANCH}${STATE} ${GRAY}using ‹${RUBY_PROMPT}${GRAY}›${NO_COLOR}\n\$ "
   else
-    PS1="\n${RUBY_PROMPT}${LIGHT_GRAY}\w\a${NO_COLOR}\n\$ "
+    PS1="\n${LIGHT_GREEN}${USER} ${GRAY}at ${LIGHT_GREEN}${HOSTNAME} ${GRAY}in ${WHITE}\w ${NO_COLOR}\n\$ "
   fi
 }
 
