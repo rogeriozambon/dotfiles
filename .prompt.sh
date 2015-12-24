@@ -26,13 +26,6 @@ __prompt () {
     BRANCH=" $BRANCH"
   fi
 
-  local RUBY_VERSION=`ruby -e "puts RUBY_VERSION"`
-
-  if [ -f Gemfile.lock ]; then
-    local RAILS_VERSION=`cat Gemfile.lock | grep -E " +rails \([0-9]+" | sed 's/ *rails (\(.*\))/\1/'`
-  fi
-
-  local RUBY_PROMPT=""
   local STATUS=`git status 2>/dev/null`
   local PROMPT_COLOR=""
   local STATE=" "
@@ -45,12 +38,6 @@ __prompt () {
   local TO_BE_COMMITED="# Changes to be committed"
   local CHANGES_NOT_STAGED="# Changes not staged for commit"
   local LOG=`git log -1 2> /dev/null`
-
-  if [[ "$RAILS_VERSION" ]]; then
-    local RAILS_PROMPT="${RED}#${LIGHT_RED}Rails ${RAILS_VERSION}"
-  fi
-
-  RUBY_PROMPT="${LIGHT_RED}Ruby ${RUBY_VERSION}${RAILS_PROMPT}${BASE_COLOR}${NO_COLOR}"
 
   if [ "$STATUS" != "" ]; then
     if [[ "$STATUS" =~ "$CHANGES_NOT_STAGED" ]]; then
@@ -83,7 +70,7 @@ __prompt () {
       STATE="${STATE}${YELLOW}*${NO_COLOR}"
     fi
 
-    PS1="\n${LIGHT_GREEN}${USER} ${GRAY}at ${LIGHT_GREEN}${HOSTNAME} ${GRAY}in ${WHITE}\w ${GRAY}on ${YELLOW}${BRANCH}${STATE} ${GRAY}using ‹${RUBY_PROMPT}${GRAY}›${NO_COLOR}\n\$ "
+    PS1="\n${LIGHT_GREEN}${USER} ${GRAY}at ${LIGHT_GREEN}${HOSTNAME} ${GRAY}in ${WHITE}\w ${GRAY}on ${YELLOW}${BRANCH}${STATE} ${NO_COLOR}\n\$ "
   else
     PS1="\n${LIGHT_GREEN}${USER} ${GRAY}at ${LIGHT_GREEN}${HOSTNAME} ${GRAY}in ${WHITE}\w ${NO_COLOR}\n\$ "
   fi

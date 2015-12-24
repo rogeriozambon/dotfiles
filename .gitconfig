@@ -28,4 +28,4 @@
   submodule = 1
 
 [core]
-  editor = subl -n -w
+  editor = vim
