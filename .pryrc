@@ -1,9 +1,9 @@
-Pry.config.editor = "mate -w"
+Pry.config.editor = 'st -w'
 
 Pry.config.prompt = proc do |obj, level, _|
-  prompt = ""
+  prompt = ''
   prompt << "#{RUBY_VERSION}#"
-  prompt << "#{Rails.version}" if defined?(Rails)
+  prompt << Rails.version if defined?(Rails)
   "#{prompt} (#{obj})> "
 end
 
@@ -13,14 +13,14 @@ Pry.config.exception_handler = proc do |output, exception, _|
 end
 
 if defined?(Rails)
-  require "rails/console/app"
-  require "rails/console/helpers"
-  TOPLEVEL_BINDING.eval("self").extend ::Rails::ConsoleMethods
+  require 'rails/console/app'
+  require 'rails/console/helpers'
+  TOPLEVEL_BINDING.eval('self').extend ::Rails::ConsoleMethods
 end
 
 begin
-  require "awesome_print"
-  Pry.config.print = proc {|output, value| Pry::Helpers::BaseHelpers.stagger_output("=> #{value.ai}", output)}
+  require 'awesome_print'
+  Pry.config.print = proc { |output, value| Pry::Helpers::BaseHelpers.stagger_output("=> #{value.ai}", output) }
 rescue LoadError => err
-   warn "=> Unable to load awesome_print"
+   warn '=> Unable to load awesome_print'
 end
