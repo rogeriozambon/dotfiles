@@ -11,5 +11,5 @@ function wt {
     CITY=$1
   fi
 
-  curl --silent --insecure -- wttr.in/$CITY | grep -v "^Follow " | head -7
+  curl --silent --insecure -- wttr.in/$CITY | head -7
 }
