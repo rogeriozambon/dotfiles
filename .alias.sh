@@ -5,11 +5,5 @@ alias fu="sudo sync && echo 3 | sudo tee /proc/sys/vm/drop_caches"
 alias fm="cat /proc/meminfo"
 
 function wt {
-  if [ -z $1 ]; then
-    CITY='maringa'
-  else
-    CITY=$1
-  fi
-
-  curl --silent --insecure -- wttr.in/$CITY | head -7
+  curl --silent --insecure -- wttr.in/${@:-maringa} | head -7
 }
