@@ -1,4 +1,4 @@
-Pry.config.editor = 'st -w'
+Pry.config.editor = 'atom -w'
 
 Pry.config.prompt = proc do |obj, level, _|
   prompt = ''
