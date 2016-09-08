@@ -1,4 +1,5 @@
-export GEM_EDITOR="atom"
+export EDITOR="atom"
+export GEM_EDITOR=$EDITOR
 export CLICOLOR="auto"
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
