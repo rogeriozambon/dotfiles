@@ -3,17 +3,22 @@ __prompt () {
   history -c
   history -r
 
-  local BLUE="\[\033[0;34m\]"
   local NO_COLOR="\[\e[0m\]"
-  local GRAY="\[\033[0;30m\]"
-  local GREEN="\[\033[0;32m\]"
-  local LIGHT_GRAY="\[\033[0;37m\]"
-  local LIGHT_GREEN="\[\033[1;32m\]"
-  local LIGHT_RED="\[\033[1;31m\]"
+  local BLACK="\[\033[0;30m\]"
   local RED="\[\033[0;31m\]"
-  local WHITE="\[\033[1;37m\]"
-  local YELLOW="\[\033[1;33m\]"
-  local MAGENTA="\[\033[0;35m\]"
+  local GREEN="\[\033[1;32m\]"
+  local YELLOW="\[\033[0;033m\]"
+  local BLUE="\[\033[1;34m\]"
+  local MAGENTA="\[\033[1;35m\]"
+  local CYAN="\[\033[1;36m\]"
+  local GRAY="\[\033[0;90m\]"
+  local LIGHT_GRAY="\[\033[1;37m\]"
+  local LIGHT_RED="\[\033[1;91m\]"
+  local LIGHT_GREEN="\[\033[1;92m\]"
+  local LIGHT_YELLOW="\[\033[1;93m\]"
+  local LIGHT_BLUE="\[\033[1;94m\]"
+  local LIGHT_MAGENTA="\[\033[1;95m\]"
+  local LIGHT_CYAN="\[\033[1;96m\]"
 
   local BASE_COLOR="$NO_COLOR"
   local BRANCH=`git branch 2> /dev/null | grep \* | sed 's/* //'`
@@ -70,9 +75,9 @@ __prompt () {
       STATE="${STATE}${YELLOW}*${NO_COLOR}"
     fi
 
-    PS1="\n${LIGHT_GREEN}${USER} ${GRAY}at ${LIGHT_GREEN}${HOSTNAME} ${GRAY}in ${WHITE}\w ${GRAY}on ${YELLOW}${BRANCH}${STATE} ${NO_COLOR}\n\$ "
+    PS1="\n${LIGHT_GRAY}${USER} ${GRAY}in ${LIGHT_GRAY}\w ${GRAY}on ${LIGHT_GRAY}${BRANCH}${STATE} ${NO_COLOR}\n\$ "
   else
-    PS1="\n${LIGHT_GREEN}${USER} ${GRAY}at ${LIGHT_GREEN}${HOSTNAME} ${GRAY}in ${WHITE}\w ${NO_COLOR}\n\$ "
+    PS1="\n${LIGHT_GRAY}${USER} ${GRAY}in ${LIGHT_GRAY}\w ${NO_COLOR}\n\$ "
   fi
 }
 
