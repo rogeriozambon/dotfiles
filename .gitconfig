@@ -28,6 +28,7 @@
   submodule = 1
 
 [core]
-  editor = vim
-[http]
-	sslVerify = false
+  editor = code --new-window --wait
+
+[url "git@bitbucket.org:"]
+  insteadOf = https://bitbucket.org/
