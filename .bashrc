@@ -4,7 +4,7 @@ source ~/.alias.sh
 source ~/.export.sh
 
 reload() {
-  source ~/.bash_profile;
+  source ~/.bashrc;
 }
 
 hd() {
