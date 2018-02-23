@@ -12,6 +12,6 @@ And now creates symlinks for all files.
 cd ~/.dotfiles
 
 for f in $(find ~/.dotfiles -maxdepth 1 -type f -printf "%f\n"); do
-    ln -s "~/.dotfiles/$f" "~/$f";
+    ln -s "$HOME/.dotfiles/$f" "$HOME/$f";
 done
 ```
